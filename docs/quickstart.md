@@ -3,7 +3,7 @@
 ## 1. 安装
 
 ```bash
-npx skills add Tiramisu-wwh/quality-gate-skills
+npx skills add Tiramisu-wwh/quality-workflow-skills
 ```
 
 ## 2. 依赖

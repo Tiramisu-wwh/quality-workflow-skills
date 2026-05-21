@@ -1,4 +1,4 @@
-# Quality Gate Skills
+# Quality Workflow Skills
 
 公开发布的质量门禁相关 skills 仓库，可通过 `npx skills add` 直接安装。
 
@@ -28,25 +28,25 @@
 安装整个仓库：
 
 ```bash
-npx skills add Tiramisu-wwh/quality-gate-skills
+npx skills add Tiramisu-wwh/quality-workflow-skills
 ```
 
 按仓库 URL 安装：
 
 ```bash
-npx skills add https://github.com/Tiramisu-wwh/quality-gate-skills
+npx skills add https://github.com/Tiramisu-wwh/quality-workflow-skills
 ```
 
 按单个 skill 安装：
 
 ```bash
-npx skills add Tiramisu-wwh/quality-gate-skills --skill prd-gatekeeper
-npx skills add Tiramisu-wwh/quality-gate-skills --skill secure-code-review
-npx skills add Tiramisu-wwh/quality-gate-skills --skill test-plan-xmind-generator
-npx skills add Tiramisu-wwh/quality-gate-skills --skill testcase-generator
-npx skills add Tiramisu-wwh/quality-gate-skills --skill apifox-tests
-npx skills add Tiramisu-wwh/quality-gate-skills --skill defect-analysis
-npx skills add Tiramisu-wwh/quality-gate-skills --skill test-report-generator
+npx skills add Tiramisu-wwh/quality-workflow-skills --skill prd-gatekeeper
+npx skills add Tiramisu-wwh/quality-workflow-skills --skill secure-code-review
+npx skills add Tiramisu-wwh/quality-workflow-skills --skill test-plan-xmind-generator
+npx skills add Tiramisu-wwh/quality-workflow-skills --skill testcase-generator
+npx skills add Tiramisu-wwh/quality-workflow-skills --skill apifox-tests
+npx skills add Tiramisu-wwh/quality-workflow-skills --skill defect-analysis
+npx skills add Tiramisu-wwh/quality-workflow-skills --skill test-report-generator
 ```
 
 ## 环境准备

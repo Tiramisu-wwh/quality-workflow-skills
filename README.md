@@ -146,6 +146,7 @@ APIFOX_ENV_ID=你的环境ID
 ## 文档
 
 - [Quickstart](docs/quickstart.md)
+- [Apifox CLI + Claude Skills](docs/apifox-cli-claude-skills.md)
 - [Release Notes](RELEASE.md)
 
 ## 说明

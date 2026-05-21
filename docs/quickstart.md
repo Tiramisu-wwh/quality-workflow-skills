@@ -85,6 +85,10 @@ node skills/apifox-tests/scripts/list-tests.js
 node skills/apifox-tests/scripts/run-cli.js tests/获取项目列表测试.md test
 ```
 
+如果你需要完整理解这套工作流，继续看：
+
+- [Apifox CLI + Claude Skills](apifox-cli-claude-skills.md)
+
 ### defect-analysis
 
 ```bash

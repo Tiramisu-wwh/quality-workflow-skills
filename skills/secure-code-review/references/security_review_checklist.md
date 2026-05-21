@@ -1,6 +1,6 @@
 # Security Review Checklist
 
-这份清单用于公开版源码安全审查 skill，不绑定内部编号。
+用于快速核对源码安全审查主题。
 
 ## 1. Secrets And Sensitive Data
 

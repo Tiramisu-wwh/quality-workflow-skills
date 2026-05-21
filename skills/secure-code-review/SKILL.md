@@ -5,9 +5,7 @@ description: Use when a team wants a structured source-code security review befo
 
 # Secure Code Review
 
-这个 skill 用于做通用源码安全审查，不绑定任何专有内规或编号体系。
-
-它的目标不是只跑一轮正则，而是把“代码语义审查 + 预扫描线索 + 结构化输出”串起来，帮助团队在开发 receive、提测前或发布前更早发现高风险问题。
+用于源码安全审查。适用于 Java、Node.js / TypeScript、Python 服务。
 
 ## 适用场景
 
@@ -18,13 +16,14 @@ description: Use when a team wants a structured source-code security review befo
 
 ## Start
 
-1. 先读取 `references/security_review_checklist.md`。
+1. 先读取 `references/security_review_requirements.md`。
 2. 再读取 `references/agent_review_playbook.md`。
-3. 识别主语言后，只加载对应提示文件：
+3. 如果只需要快速核对主题，再读取 `references/security_review_checklist.md`。
+4. 识别主语言后，只加载对应提示文件：
    - Java：`references/java_review_signals.md`
    - Node.js / TypeScript：`references/node_ts_review_signals.md`
    - Python：`references/python_review_signals.md`
-4. 只有在需要统一风险口径时，再读 `references/detection_rules.md`。
+5. 只有在需要统一风险口径时，再读 `references/detection_rules.md`。
 
 ## Review Workflow
 
@@ -40,7 +39,7 @@ description: Use when a team wants a structured source-code security review befo
 python3 scripts/secure_review_scan.py /path/to/project --format markdown
 ```
 
-把这一步当成候选问题列表，不要直接当结论。
+预扫描结果只作为候选问题列表，不直接作为结论。
 
 3. 再用 `rg` 缩小人工审查范围。
 
@@ -85,12 +84,12 @@ rg -n "GetMapping|RequestMapping|router\\.|app\\.(get|post|put|delete)|@router\\
 - `needs_manual_review` 列表：说明为什么不能只靠源码证明
 - 残余风险：说明本次未覆盖或无法完全证明的区域
 
-优先使用 `assets/report_template.md` 的结构。
+按 `assets/report_template.md` 的结构输出。
 
 ## Scripts
 
 - `scripts/secure_review_scan.py`
-  - 通用多语言预扫描器
+  - 多语言预扫描器
   - 支持 Java、Node.js / TypeScript、Python
   - 输出候选问题、风险类别和需人工确认项
 

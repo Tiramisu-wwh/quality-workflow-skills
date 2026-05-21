@@ -1,7 +1,71 @@
 {
-  "generated_from": "",
-  "projects": {},
-  "projects_by_normalized_name": {},
-  "people": {},
-  "people_by_id": {}
+  "generated_from": "example-mapping.md",
+  "projects": {
+    "示例项目 A": {
+      "name": "示例项目 A",
+      "normalized_name": "示例项目a",
+      "project_id": "proj_example_001",
+      "tasklists": [
+        {
+          "name": "缺陷池",
+          "id": "tasklist_bug_pool_001"
+        },
+        {
+          "name": "测试计划",
+          "id": "tasklist_test_plan_001"
+        }
+      ],
+      "stages": [
+        {
+          "name": "待处理",
+          "id": "stage_todo_001",
+          "tasklist_id": "tasklist_bug_pool_001"
+        },
+        {
+          "name": "已解决",
+          "id": "stage_done_001",
+          "tasklist_id": "tasklist_bug_pool_001"
+        }
+      ],
+      "sfc": [
+        {
+          "name": "严重程度",
+          "id": "sfc_severity_001"
+        },
+        {
+          "name": "发现环境",
+          "id": "sfc_environment_001"
+        }
+      ],
+      "tfs": [
+        {
+          "name": "缺陷类型",
+          "kind": "single-select",
+          "id": "tfs_bug_type_001"
+        },
+        {
+          "name": "测试轮次",
+          "kind": "text",
+          "id": "tfs_test_round_001"
+        }
+      ]
+    }
+  },
+  "projects_by_normalized_name": {
+    "示例项目a": "proj_example_001"
+  },
+  "people": {
+    "张三": [
+      "user_zhangsan_001"
+    ],
+    "李四": [
+      "user_lisi_001",
+      "user_lisi_002"
+    ]
+  },
+  "people_by_id": {
+    "user_zhangsan_001": "张三",
+    "user_lisi_001": "李四",
+    "user_lisi_002": "李四"
+  }
 }

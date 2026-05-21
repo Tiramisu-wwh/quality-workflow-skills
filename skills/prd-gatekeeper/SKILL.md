@@ -1,6 +1,6 @@
 ---
 name: prd-gatekeeper
-description: Use when a team needs a structured PRD admission review before development, especially for PRD, PDF, Markdown, Figma, or Figma Make inputs that must produce an Excel review report.
+description: PRD 准入评审工具，根据准入检查清单对 PRD 文档进行评审，并生成标准的 Excel 评审报告。当用户请求对 PRD 文档进行准入检查、评审、质量门禁等操作时使用。支持 Word、PDF、Markdown 文档、Figma 设计稿链接，以及 Figma Make 代码包或工程目录；其中 PRD 与 Figma Make 通常作为联合输入使用。
 ---
 
 # PRD 准入评审工具

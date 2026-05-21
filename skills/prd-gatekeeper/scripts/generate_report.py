@@ -4,7 +4,6 @@ PRD 准入评审报告生成脚本
 """
 import xlsxwriter
 from datetime import datetime
-from pathlib import Path
 
 
 def generate_review_report(template_path, output_path, review_results, project_info=None):
@@ -449,65 +448,4 @@ def write_review_results(sheet, row, formats, review_results):
 
 
 if __name__ == '__main__':
-    # 测试代码
-    template_path = str(Path(__file__).resolve().parents[1] / 'assets' / 'PRD准入检查清单模板.xlsx')
-    output_path = '/tmp/test_review_report.xlsx'
-
-    # 模拟评审结果（完整43项）
-    test_results = {
-        '1': {'result': '通过', 'note': ''},
-        '2': {'result': '通过', 'note': ''},
-        '3': {'result': '通过', 'note': ''},
-        '4': {'result': '通过', 'note': ''},
-        '5': {'result': '通过', 'note': ''},
-        '6': {'result': '通过', 'note': ''},
-        '7': {'result': '通过', 'note': ''},
-        '8': {'result': '通过', 'note': ''},
-        '9': {'result': '不通过', 'note': '缺少业务价值说明'},
-        '10': {'result': '不通过', 'note': ''},
-        '11': {'result': '通过', 'note': ''},
-        '12': {'result': '通过', 'note': ''},
-        '13': {'result': '通过', 'note': ''},
-        '14': {'result': '通过', 'note': ''},
-        '15': {'result': '通过', 'note': ''},
-        '16': {'result': '通过', 'note': ''},
-        '17': {'result': '通过', 'note': ''},
-        '18': {'result': '通过', 'note': ''},
-        '19': {'result': '通过', 'note': ''},
-        '20': {'result': '通过', 'note': ''},
-        '21': {'result': '通过', 'note': ''},
-        '22': {'result': '未涉及', 'note': '无历史数据'},
-        '23': {'result': '通过', 'note': ''},
-        '24': {'result': '通过', 'note': ''},
-        '25': {'result': '通过', 'note': ''},
-        '26': {'result': '通过', 'note': ''},
-        '27': {'result': '通过', 'note': ''},
-        '28': {'result': '通过', 'note': ''},
-        '29': {'result': '通过', 'note': ''},
-        '30': {'result': '通过', 'note': ''},
-        '31': {'result': '通过', 'note': ''},
-        '32': {'result': '通过', 'note': ''},
-        '33': {'result': '通过', 'note': ''},
-        '34': {'result': '通过', 'note': ''},
-        '35': {'result': '通过', 'note': ''},
-        '36': {'result': '通过', 'note': ''},
-        '37': {'result': '通过', 'note': ''},
-        '38': {'result': '通过', 'note': ''},
-        '39': {'result': '通过', 'note': ''},
-        '40': {'result': '通过', 'note': ''},
-        '41': {'result': '通过', 'note': ''},
-        '42': {'result': '通过', 'note': ''},
-        '43': {'result': '通过', 'note': ''},
-    }
-
-    # 模拟项目信息
-    test_project_info = {
-        'project_name': '测试项目',
-        'product_manager': '张三',
-        'version': 'v1.0',
-        'requirement_link': 'http://example.com',
-        'expected_release_date': '2026-03-20',
-    }
-
-    generate_review_report(template_path, output_path, test_results, test_project_info)
-    print(f"评审报告已生成: {output_path}")
+    raise SystemExit("This module is intended to be imported and called by the skill workflow.")

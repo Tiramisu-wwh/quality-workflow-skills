@@ -1,15 +1,29 @@
 # Quality Gate Skills
 
-公开发布的质量门禁相关 skills 仓库，按 `skills.sh` / `npx skills add` 的目录结构整理。
+公开发布的质量门禁相关 skills 仓库，可通过 `npx skills add` 直接安装。
 
-## Skills
+## 包含的 Skills
 
 - `prd-gatekeeper`
+- `secure-code-review`
 - `test-plan-xmind-generator`
 - `testcase-generator`
 - `apifox-tests`
+- `defect-analysis`
+- `test-report-generator`
 
-## Install
+## 适用流程
+
+推荐按下面这条链路使用：
+
+`产品 Agent 需求准入 -> 开发 receive 代码安全审计 -> QA 测试计划 -> QA 测试用例 -> 接口自动化 -> 缺陷分析 -> 测试报告`
+
+其中：
+
+- `prd-gatekeeper` 适合前置到产品 Agent 侧。
+- `secure-code-review` 适合前置到开发 receive 侧。
+
+## 安装
 
 安装整个仓库：
 
@@ -27,28 +41,115 @@ npx skills add https://github.com/Tiramisu-wwh/quality-gate-skills
 
 ```bash
 npx skills add Tiramisu-wwh/quality-gate-skills --skill prd-gatekeeper
+npx skills add Tiramisu-wwh/quality-gate-skills --skill secure-code-review
 npx skills add Tiramisu-wwh/quality-gate-skills --skill test-plan-xmind-generator
 npx skills add Tiramisu-wwh/quality-gate-skills --skill testcase-generator
 npx skills add Tiramisu-wwh/quality-gate-skills --skill apifox-tests
+npx skills add Tiramisu-wwh/quality-gate-skills --skill defect-analysis
+npx skills add Tiramisu-wwh/quality-gate-skills --skill test-report-generator
 ```
 
-## Prepare
+## 环境准备
 
-- `apifox-tests/env/*.env` 已改成占位符，安装后需要自行填写 Apifox 访问令牌和环境 ID。
-- `test-plan-xmind-generator`、`testcase-generator`、`prd-gatekeeper` 依赖本地 Python 环境。
-- `apifox-tests` 依赖本地 Node.js 环境；首次使用前在 skill 目录执行 `npm ci`。
-- 仓库中的脚本默认以相对路径运行，建议在对应 skill 目录内执行。
+- Python 3.11 或更高版本
+- Node.js 18 或更高版本
+- `git`、`rg`
 
-## Release
+常用依赖：
 
-- 新增或调整 skill 后，先检查 `SKILL.md` frontmatter 只保留 `name` 和 `description`。
-- 清理绝对路径、本地账号目录、令牌和内部链接。
-- 运行最基本的验证：相关单测、`py_compile`、必要的 Node 脚本检查。
-- 更新本仓库 `README.md` 的技能列表和安装示例。
-- 提交后打 tag，再推送分支和 tag。
+```bash
+python3 -m pip install xlsxwriter openpyxl requests
+```
 
-## Notes
+Apifox 依赖：
 
-- 公开仓库仅保留通用质量门禁 skill。
-- 公司规范、条款编号、内部模板相关内容已拆到 private 仓库 `company-security-skills`。
-- 这些 skills 以 Codex / Claude 类 agent 工作流为目标，部分内容默认依赖本地 Python、Node.js、Excel 模板和相关工具链。
+```bash
+cd skills/apifox-tests
+npm install
+```
+
+## 首次配置
+
+### Apifox
+
+填写：
+
+- `skills/apifox-tests/env/dev.env`
+- `skills/apifox-tests/env/test.env`
+- `skills/apifox-tests/env/prod.env`
+
+格式：
+
+```env
+APIFOX_ACCESS_TOKEN=APS-你的访问令牌
+APIFOX_ENV_ID=你的环境ID
+```
+
+### Teambition
+
+填写：
+
+- `skills/defect-analysis/assets/teambition-auth.env`
+- `skills/test-report-generator/assets/teambition-auth.env`
+
+并替换：
+
+- `skills/defect-analysis/assets/teambition-id-mapping.json`
+- `skills/test-report-generator/assets/teambition-id-mapping.json`
+
+仓库里的鉴权和映射文件都是空模板，不包含真实凭据或项目数据。
+
+## 快速开始
+
+### 1. 需求准入
+
+```text
+用 prd-gatekeeper 评审这份 PRD，并输出准入报告。
+```
+
+### 2. 代码安全审计
+
+```text
+用 secure-code-review 审查这个仓库，并输出高风险问题和控制矩阵。
+```
+
+### 3. 测试计划
+
+```text
+根据这份 PRD 和接口说明，生成测试计划和 XMind。
+```
+
+### 4. 测试用例
+
+```text
+根据这份 PRD 生成测试用例，并额外导出一份冒烟集。
+```
+
+### 5. 接口自动化
+
+```text
+用 apifox-tests 在 test 环境执行 获取项目列表测试，并解释结果。
+```
+
+### 6. 缺陷分析
+
+```text
+用 defect-analysis 生成 示例项目 Sprint 12 的缺陷分析报告。
+```
+
+### 7. 测试报告
+
+```text
+用 test-report-generator 生成 示例项目 Sprint 12 的测试报告。
+```
+
+## 文档
+
+- [Quickstart](docs/quickstart.md)
+- [Release Notes](RELEASE.md)
+
+## 说明
+
+- 这个公开仓库只保留可公开分发的通用 skill、脚本和模板占位文件。
+- `apifox-tests/tests/` 中保留的是示例测试文件，接入新团队后通常需要替换成自己的测试集。
+- `defect-analysis` 和 `test-report-generator` 依赖 Teambition OpenAPI，首次使用前需要补齐鉴权和映射文件。

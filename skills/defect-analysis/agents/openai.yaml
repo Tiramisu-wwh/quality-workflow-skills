@@ -1,0 +1,4 @@
+interface:
+  display_name: "Defect Analysis"
+  short_description: "Generate Teambition defect analysis reports by iteration or date range."
+  default_prompt: "Use $defect-analysis to generate a Teambition defect analysis report for a project by iteration or date range."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Report Generator"
+  short_description: "Fill iteration test reports from Teambition."
+  default_prompt: "Use $test-report-generator to complete a test report for a Teambition project iteration from test plans, test cases, execution results, and defects."

@@ -96,7 +96,7 @@ class TBClient:
 
     def headers(self) -> dict[str, str]:
         return {
-            "Authorization": self.token,
+            "Authorization": f"Bearer {self.token}",
             "X-Tenant-Id": self.auth["TEAMBITION_TENANT_ID"],
             "X-Tenant-Type": self.auth["TEAMBITION_TENANT_TYPE"],
             "X-Operator-Id": self.auth["TEAMBITION_OPERATOR_ID"],

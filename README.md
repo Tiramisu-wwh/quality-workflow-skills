@@ -231,6 +231,7 @@ APIFOX_ENV_ID=你的环境ID
 
 ```text
 根据这份 PRD 生成测试用例。
+根据这份 PRD 使用当前内置 Teambition 基础用例模板 生成测试用例。
 ```
 
 ### 5. 接口自动化

@@ -147,7 +147,29 @@ npx skills add Tiramisu-wwh/quality-workflow-skills --skill test-report-generato
 python3 -m pip install xlsxwriter openpyxl requests
 ```
 
-Apifox 依赖：
+Apifox CLI 前置准备：
+
+1. 确认电脑已安装 Node 环境：
+
+```bash
+node -v
+npm -v
+```
+
+2. 全局安装 Apifox CLI：
+
+```bash
+npm install -g apifox-cli
+apifox --version
+```
+
+看到版本号，说明 Apifox CLI 已安装成功。
+
+3. 到 Apifox 的“自动化测试 -> CI/CD”中，复制一个“测试场景”或“测试套件”的 CLI 命令到终端执行，并补上 Access Token。
+
+看到测试输出，说明 Apifox CLI 可以正常工作。
+
+Apifox skill 本地脚本依赖：
 
 ```bash
 cd skills/apifox-tests
@@ -158,7 +180,7 @@ npm install
 
 ### Apifox
 
-填写：
+先确认上面的 Apifox CLI 前置准备已经完成，再填写：
 
 - `skills/apifox-tests/env/dev.env`
 - `skills/apifox-tests/env/test.env`
@@ -202,13 +224,13 @@ APIFOX_ENV_ID=你的环境ID
 ### 3. 测试计划
 
 ```text
-根据这份 PRD 和接口说明，生成测试计划和 XMind。
+根据这份 PRD ，生成测试计划和 XMind。
 ```
 
 ### 4. 测试用例
 
 ```text
-根据这份 PRD 生成测试用例，并额外导出一份冒烟集。
+根据这份 PRD 生成测试用例。
 ```
 
 ### 5. 接口自动化
@@ -216,6 +238,8 @@ APIFOX_ENV_ID=你的环境ID
 ```text
 用 apifox-tests 在 test 环境执行 获取项目列表测试，并解释结果。
 ```
+
+如果是首次接入，先按“环境准备 -> Apifox CLI 前置准备”完成 Node、`apifox-cli`、Access Token 和 CLI 命令验证，再开始使用 skill。
 
 ### 6. 缺陷分析
 

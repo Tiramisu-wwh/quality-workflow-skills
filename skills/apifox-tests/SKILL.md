@@ -7,6 +7,36 @@ description: Use when running or interpreting Apifox automated API tests for dev
 
 执行 Apifox 自动化测试并解释结果。
 
+## 前置准备
+
+首次使用前，先确认下面几项已经完成：
+
+1. 电脑已安装 Node 环境：
+
+```bash
+node -v
+npm -v
+```
+
+2. 已全局安装 Apifox CLI：
+
+```bash
+npm install -g apifox-cli
+apifox --version
+```
+
+3. 已在终端直接验证过一条 Apifox CLI 命令。
+   - 到 Apifox 的“自动化测试 -> CI/CD”中复制一个“测试场景”或“测试套件”的 CLI 命令
+   - 补上 Access Token 后直接执行
+   - 看到测试输出，说明 `apifox-cli` 可用
+
+4. 已安装 skill 本地脚本依赖：
+
+```bash
+cd skills/apifox-tests
+npm install
+```
+
 ## 适用场景
 
 - 开发自测后验证接口是否可用

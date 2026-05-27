@@ -2,6 +2,41 @@
 
 适用于在支持 Skill 的 Agent 中接入 Apifox CLI，并用自然语言触发接口测试。
 
+## 0. 前置准备
+
+### 0.1 Node 环境
+
+先确认电脑已安装 Node：
+
+```bash
+node -v
+npm -v
+```
+
+### 0.2 安装 Apifox CLI
+
+```bash
+npm install -g apifox-cli
+apifox --version
+```
+
+看到版本号，说明 `apifox-cli` 已安装成功。
+
+### 0.3 先直接验证一条 CLI 命令
+
+到 Apifox 的「自动化测试 -> CI/CD」中，复制一个“测试场景”或“测试套件”的 CLI 命令到终端执行，并补上 Access Token。
+
+看到测试输出，说明 Apifox CLI 可以正常工作。建议先完成这一步，再接入 Agent skill，这样更容易区分是 CLI 本身的问题，还是 skill 配置问题。
+
+### 0.4 安装 skill 本地脚本依赖
+
+`apifox-tests` 里的 `run-cli.js` 依赖 `dotenv`，首次接入仓库后还需要执行：
+
+```bash
+cd skills/apifox-tests
+npm install
+```
+
 ## 1. 使用场景
 
 可直接触发的请求示例：
